@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="namecheck5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="115.0" prefHeight="51.0" prefWidth="136.0" text="MC-Check" textAlignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="413.0" layoutY="223.0" prefHeight="17.0" prefWidth="86.0" text="Made by Jeopy" />
+      <TextField fx:id="namecheck" layoutX="14.0" layoutY="58.0" prefHeight="40.0" prefWidth="200.0" promptText="Path to the names to check" />
+      <Button fx:id="namecheckf" layoutX="225.0" layoutY="58.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="112.0" text="Pick file" />
+      <Button fx:id="avnamesf" layoutX="225.0" layoutY="125.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="112.0" text="Pick file" />
+      <TextField fx:id="avnames" layoutX="14.0" layoutY="125.0" prefHeight="40.0" prefWidth="200.0" promptText="Path to the list of available names" />
+      <Button fx:id="startb" layoutX="139.0" layoutY="183.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="67.0" text="Start" />
+      <Label layoutX="400.0" layoutY="3.0" prefHeight="46.0" prefWidth="86.0" text="Output">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="output" layoutX="368.0" layoutY="53.0" prefHeight="149.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
