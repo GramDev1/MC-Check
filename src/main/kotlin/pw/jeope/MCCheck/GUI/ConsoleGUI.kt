@@ -1,7 +1,8 @@
-package pw.jeopy.MCCheck.GUI
+package pw.jeope.MCCheck.GUI
 
 import com.google.common.io.Files
-import pw.jeopy.MCCheck.Auth.CheckKey
+import pw.jeope.MCCheck.Auth.CheckKey
+import pw.jeope.MCCheck.Auth.GetKey
 import java.io.File
 import java.nio.charset.Charset
 import java.util.*
@@ -19,12 +20,13 @@ object ConsoleGUI : BaseGUI() {
      */
     @JvmStatic
     fun init() {
-        var verified = false;
+        var verified = GetKey.getValidKey();
         val s: Scanner = Scanner(System.`in`)
         while (! verified) {
             say("Please enter a valid  MC-Check key")
             val key = s.nextLine()
             verified = CheckKey.check(key)
+            if(verified) GetKey.createKey(key)
 
         }
         say("Please enter the file path to the list of usernames")

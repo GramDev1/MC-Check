@@ -1,4 +1,4 @@
-package pw.jeopy.MCCheck.GUI
+package pw.jeope.MCCheck.GUI
 
 import com.google.common.io.Files
 import javafx.fxml.FXML
@@ -10,7 +10,8 @@ import javafx.scene.Scene
 import javafx.scene.control.*
 import javafx.stage.FileChooser
 import javafx.stage.Stage
-import pw.jeopy.MCCheck.Auth.CheckKey
+import pw.jeope.MCCheck.Auth.CheckKey
+import pw.jeope.MCCheck.Auth.GetKey
 import java.io.File
 import java.net.URL
 import java.nio.charset.Charset
@@ -57,13 +58,17 @@ object DesktopGUI {
             println("Controller initialized")
             var available: File? = null;
             var names: List<String>? = null;
-            var verified = false;
+            var verified = GetKey.getValidKey()
 
             while (! verified) {
-                verified = verifyKey();
+                val (check,key) = verifyKey();
+                verified = check;
                 if (! verified) {
                     alert("Invalid Key! Please enter a valid MC-Checker key!")
+                    continue
                 }
+                if(key != null) GetKey.createKey(key)
+
             }
             namecheckf.setOnAction {
                 val chooser = FileChooser()
@@ -121,16 +126,23 @@ object DesktopGUI {
             alert.title = "MC Check"
         }
 
-        private fun verifyKey(): Boolean {
+        private fun verifyKey(): Pair<Boolean,String?> {
             val dialog = TextInputDialog()
             dialog.title = "MC Check Key"
             dialog.headerText = "Verify your MC Check Key!"
             dialog.contentText = "Please input you key"
             val result = dialog.showAndWait()
             if (result.isPresent) {
-                return CheckKey.check(result.get())
+                if (result.get().isEmpty() || result.get().isBlank()) {
+                    return Pair(false,null)
+                }
+                return Pair(CheckKey.check(result.get()),result.get())
             }
-            return false
+            else {
+                //Hit cancel
+                System.exit(0)
+            }
+            return Pair(false,null)
         }
     }
 

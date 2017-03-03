@@ -1,4 +1,4 @@
-package pw.jeopy.MCCheck.CheckingUtils
+package pw.jeope.MCCheck.CheckingUtils
 
 import com.mashape.unirest.http.Unirest
 import java.util.concurrent.atomic.AtomicInteger

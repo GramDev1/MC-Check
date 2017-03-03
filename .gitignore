@@ -65,3 +65,6 @@ $RECYCLE.BIN/
 *.lock
 .gradle/3.1/taskArtifacts/fileHashes.bin
 *.bin
+/distribution/
+/build/
+build/*

@@ -1,4 +1,4 @@
-package pw.jeopy.MCCheck.CheckingUtils
+package pw.jeope.MCCheck.CheckingUtils
 
 import java.util.*
 
